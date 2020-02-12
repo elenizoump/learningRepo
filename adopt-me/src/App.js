@@ -1,20 +1,22 @@
-// import React, { useState, lazy, Suspense } from "react";
 import React, { useState } from "react";
-//import { render } from "react-dom";
+// import React, { useState, lazy, Suspense } from "react";
+// import { render } from "react-dom";
 import { Router, Link } from "@reach/router";
-// import NavBar from "./NavBar";
-import ThemeContext from "./ThemeContext";
+// import ThemeContext from "./ThemeContext";
+import { Provider } from "react-redux";
 import Details from "./Details";
 import SearchParams from "./SearchParams";
+import store from "./store";
 
-//const Details = lazy(() => import("./Details"));
+// const Details = lazy(() => import("./Details"));
 
-//const SearchParams = lazy(() => import("./SearchParams"));
+// const SearchParams = lazy(() => import("./SearchParams"));
 
 const App = () => {
-  const theme = useState("darkblue");
+  // const theme = useState("darkblue");
   return (
-    <ThemeContext.Provider value={theme}>
+    // <ThemeContext.Provider value={theme}>
+    <Provider store={store}>
       <div>
         <header>
           <Link to="/">Adopt me!</Link>
@@ -27,7 +29,8 @@ const App = () => {
         </Router>
         {/* </Suspense> */}
       </div>
-    </ThemeContext.Provider>
+    </Provider>
+    /* // </ThemeContext.Provider> */
   );
 };
 
